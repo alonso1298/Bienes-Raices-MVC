@@ -1,0 +1,90 @@
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet{
+        align-items: flex-end;
+    }
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        filter: invert(100%); // Podemos crear efectos parecidos a los de instagram
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    @include tablet {
+        margin-top: 0;
+    }
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.logo-header { // Esta clase ayuda que el logo sea visible en todos los navegadores
+    max-width: 100%;
+    width: 28rem;
+    height: auto;
+}
+
+.navegacion {
+
+    visibility: hidden; //Esta propiedad es similar al display none pero esta si se puede animar
+    opacity: 0;
+    height: 0;
+    transition: visibility 3s ease-in-out , opacity 0.5s, height 0.5s linear; // Se agrega la propiedad, la duracion y el tipo de animación 
+
+    @include tablet{
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type { //Esto nos dice que es del ultimo elemento
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/** Menú  de hamburguesa **/
+.mobile-menu {
+    @include tablet {
+        display: none; // No lo muestra en el pantalla
+    }
+
+    img {
+        width: 5rem;
+    }
+}
+
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
