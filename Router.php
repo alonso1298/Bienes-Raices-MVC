@@ -21,9 +21,9 @@ class Router {
 
         if($fn) {
             // La url existe y hay una funcion asociada
-            debuguear($fn);
+            call_user_func($fn, $this); // call_user_func es una funcion que nos va a permitir llamar a una funcion cuando no sabemos como se llama esa funcion 
         } else {
-            call_user_func // call_user_func es una funcion que nos va a permitir llamar a una funcion cuando np sabemos como se llama esa funcion 
+            echo "La pagina no existe";
         }
     }
 }
