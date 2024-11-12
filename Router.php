@@ -28,12 +28,15 @@ class Router {
     }
 
     // Muestra una vista 
-    public function render($view) {
+    public function render($view, $datos = []) {
+
+        foreach($datos as $key => $value) {
+            $$key = $value; // Con $$ creamos una variable de variable 
+        }
 
         ob_start(); // ob_start Inicia un almacenamiento en memoria
         include __DIR__ . "/views/$view.php"; // Guarda en memoria esa vista
         $contenido = ob_get_clean(); // ob_get_clean Limpia el Buffer
-
         include __DIR__ . "/views/propiedades/layout.php";
     }
 }
