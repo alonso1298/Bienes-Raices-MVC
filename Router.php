@@ -26,4 +26,9 @@ class Router {
             echo "La pagina no existe";
         }
     }
+
+    // Muestra una vista 
+    public function render($view) {
+        include __DIR__ . "/views/$view.php";
+    }
 }
