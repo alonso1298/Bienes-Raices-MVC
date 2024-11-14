@@ -22,6 +22,11 @@ class PropiedadController {
         $propiedad = new Propiedad;
         $vendedores = Vendedor::all();
 
+         // Ejecutar el código después que el usuario envia el formulario 
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        }
+
         $router->render('propiedades/crear', [
             'propiedad' => $propiedad,
             'vendedores' => $vendedores
