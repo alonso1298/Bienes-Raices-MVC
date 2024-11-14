@@ -2,12 +2,17 @@
 
 namespace Controllers;
 use MVC\Router;
+use Model\Propiedad;
 
 class PropiedadController {
     public static function index(Router $router) { // Agregamos Router para no crear una nueva instancia y seguir manteniendo la referencia pasando el objeto que viene de index.php
         
+        $propiedades = Propiedad::all();
+        $resultado = null;
+
         $router->render('propiedades/admin', [
-            'mensaje' => 'Desde la vista',
+            'propiedades' => $propiedades,
+            'resultado' => $resultado,
         ]);
     }
 
