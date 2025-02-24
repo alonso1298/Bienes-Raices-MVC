@@ -43,6 +43,8 @@ class PropiedadController {
                 $propiedad->setImagen($nombreImagen);
             }
 
+            debuguear();
+
             // Validar
             $errores = $propiedad->validar();
 
