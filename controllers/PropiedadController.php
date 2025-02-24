@@ -10,7 +10,9 @@ class PropiedadController {
     public static function index(Router $router) { // Agregamos Router para no crear una nueva instancia y seguir manteniendo la referencia pasando el objeto que viene de index.php
         
         $propiedades = Propiedad::all();
-        $resultado = null;
+        
+         // Muestra mensaje condicional
+        $resultado = $_GET['resultado'] ?? null; // El paceholder ?? null busca el valor $_GET['resultado'] y si no existe le asigna null }
 
         $router->render('propiedades/admin', [
             'propiedades' => $propiedades,
@@ -37,13 +39,12 @@ class PropiedadController {
             $nombreImagen = md5( uniqid( rand(), true ) ) . '.jpg';
 
             // Setear la imagen
-            if($_FILES){
+            if($_FILES['propiedad']['tmp_name']['imagen']){
+
                 // Realiza un resize a la imagen con intervetion
                 $image = Image::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800,600);
                 $propiedad->setImagen($nombreImagen);
             }
-
-            debuguear();
 
             // Validar
             $errores = $propiedad->validar();
