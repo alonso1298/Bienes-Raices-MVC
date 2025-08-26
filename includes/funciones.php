@@ -57,3 +57,15 @@ function mostrarNotificacion($codigo) {
 
     return $mensaje;
 }
+
+function validarORedireccionar(String $url){
+    // Validar por ID válido
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if(!$id) {
+        header("Location: ${url}"); // Si el id no es un entero nos redirecciona al admin
+    }
+
+    return $id;
+}
