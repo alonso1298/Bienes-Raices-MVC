@@ -4,7 +4,7 @@ function conectarDB() : mysqli {
     $db = new mysqli(
         getenv('DB_HOST'), 
         getenv('DBMYSQL_USER'), 
-        getenv('56457977Ac*'), 
+        getenv('MYSQL_PASSWORD'), 
         getenv('DB_BienesRaices')
     );
 
