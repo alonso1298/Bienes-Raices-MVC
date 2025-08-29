@@ -119,4 +119,22 @@ class PropiedadController {
             'vendedores' => $vendedores
         ]);
     }
+    
+    public static function eliminar(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            // Validar id
+            //Se hace de esta manera porque ese id no va a existir hata que se haga el REQUEST_METHOD ya que de lo contrario nos daria un error de undefined
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+
+            if($id) {
+
+                $tipo = $_POST['tipo'];
+                if(validarTipoContenido($tipo)){
+                    $propiedad = Propiedad::find($id);
+                    $propiedad->eliminar();
+                }
+            }
+        }
+    }
 }
