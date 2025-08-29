@@ -10,6 +10,8 @@ class PropiedadController {
     public static function index(Router $router) { // Agregamos Router para no crear una nueva instancia y seguir manteniendo la referencia pasando el objeto que viene de index.php
         
         $propiedades = Propiedad::all();
+
+        $vendedores = Vendedor::all();
         
          // Muestra mensaje condicional
         $resultado = $_GET['resultado'] ?? null; // El paceholder ?? null busca el valor $_GET['resultado'] y si no existe le asigna null }
@@ -17,6 +19,7 @@ class PropiedadController {
         $router->render('propiedades/admin', [
             'propiedades' => $propiedades,
             'resultado' => $resultado,
+            'vendedores' => $vendedores
         ]);
     }
 
