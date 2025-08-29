@@ -13,7 +13,7 @@
         ?>
 
         <a href="/propiedades/crear" class="boton boton-verde">Nueva Propiedad</a>
-        <a href="/admin/vendedores/crear.php" class="boton boton-amarillo">Nuevo(a) Vendedor</a>
+        <a href="/vendedores/crear" class="boton boton-amarillo">Nuevo(a) Vendedor</a>
 
         <h2>Propiedades</h2>
 
